@@ -50,7 +50,7 @@ public class mikuMechanum extends OpMode {
         }
         tetoStatePrevious = tetoStateCurrent;
         if (tetoToggle) {
-            tetoIntake.setVelocity(800);
+            tetoIntake.setVelocity(100);
         } else {
             tetoIntake.setVelocity(0);
         }

@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.hardware.DcMotorEx;
 public class mikuMechanum extends OpMode {
     sFMikiServo tetoServo = new sFMikiServo();
     sFMikiServo mikuServo = new sFMikiServo();
-    private DcMotorEx tetoIntake;
+    private DcMotor tetoIntake;
     private DcMotor leftBackMotor;
     private DcMotor leftFrontMotor;
     private DcMotor rightFrontMotor;
@@ -22,7 +22,7 @@ public class mikuMechanum extends OpMode {
         leftFrontMotor = hardwareMap.get(DcMotor.class, "leftFrontMotor");
         rightBackMotor = hardwareMap.get(DcMotor.class, "rightBackMotor");
         rightFrontMotor = hardwareMap.get(DcMotor.class, "rightFrontMotor");
-        tetoIntake = hardwareMap.get(DcMotorEx.class, "tetoIntake");
+        tetoIntake = hardwareMap.get(DcMotor.class, "tetoIntake");
         tetoServo.init(hardwareMap);
         mikuServo.init(hardwareMap);
 
@@ -50,18 +50,18 @@ public class mikuMechanum extends OpMode {
         }
         tetoStatePrevious = tetoStateCurrent;
         if (tetoToggle) {
-            tetoIntake.setVelocity(1866.67);
+            tetoIntake.setPower(1);
         } else {
-            tetoIntake.setVelocity(0);
+            tetoIntake.setPower(0);
         }
 
         if (gamepad1.a) {
-            tetoServo.setServoPosition(.25);
-            mikuServo.setServoPosition(-.25);
+            tetoServo.setMikuServoPosition(.25);
+            mikuServo.setTetoServoPosition(-.25);
         }
         else{
-            tetoServo.setServoPosition(0);
-            mikuServo.setServoSpin(0);
+            tetoServo.setTetoServoPosition(0);
+            mikuServo.setMikuServoPosition(0);
         }
     }
 }

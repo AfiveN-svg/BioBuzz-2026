@@ -22,7 +22,7 @@ public class mikuMechanum extends OpMode {
         leftFrontMotor = hardwareMap.get(DcMotor.class, "leftFrontMotor");
         rightBackMotor = hardwareMap.get(DcMotor.class, "rightBackMotor");
         rightFrontMotor = hardwareMap.get(DcMotor.class, "rightFrontMotor");
-        tetoIntake = hardwareMap.get(DcMotor.class, "tetoIntake");
+        tetoIntake = hardwareMap.get(DcMotorEx.class, "tetoIntake");
         tetoServo.init(hardwareMap);
         mikuServo.init(hardwareMap);
 

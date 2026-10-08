@@ -21,6 +21,7 @@ public class sFMikiServo {
 
     public void setServoPosition(double angle) {
             mikuServo.setPosition(angle);
+            tetoServo.setPosition(angle);
         }
 
     public void setServoSpin (double power) {

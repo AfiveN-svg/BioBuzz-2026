@@ -1,9 +1,10 @@
 package org.firstinspires.ftc.teamcode.rinRobot;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
-
+@TeleOp
 public class mikuMechanum extends OpMode {
     sFMikiServo tetoServo = new sFMikiServo();
     sFMikiServo mikuServo = new sFMikiServo();

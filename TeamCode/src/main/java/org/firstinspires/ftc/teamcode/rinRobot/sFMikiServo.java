@@ -6,7 +6,6 @@ import com.qualcomm.robotcore.hardware.Servo;
 
 public class sFMikiServo {
     private Servo mikuServo;
-    private CRServo mikuSerSpin;
     private Servo tetoServo;
 
     public void init(HardwareMap hwMap) {

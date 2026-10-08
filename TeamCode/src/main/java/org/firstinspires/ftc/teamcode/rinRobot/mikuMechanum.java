@@ -55,8 +55,8 @@ public class mikuMechanum extends OpMode {
         }
 
         if (gamepad1.a) {
-            tetoServo.setServoPosition(.5);
-            mikuServo.setServoPosition(-.5);
+            tetoServo.setServoPosition(.25);
+            mikuServo.setServoPosition(-.25);
         }
         else{
             tetoServo.setServoPosition(0);

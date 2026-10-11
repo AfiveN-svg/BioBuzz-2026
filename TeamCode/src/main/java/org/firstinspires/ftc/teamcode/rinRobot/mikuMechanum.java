@@ -3,12 +3,12 @@ package org.firstinspires.ftc.teamcode.rinRobot;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorEx;
+//import com.qualcomm.robotcore.hardware.DcMotorEx;
 @TeleOp
 public class mikuMechanum extends OpMode {
     sFMikiServo tetoServo = new sFMikiServo();
     sFMikiServo mikuServo = new sFMikiServo();
-    private DcMotorEx tetoIntake;
+    private DcMotor tetoIntake;
     private DcMotor leftBackMotor;
     private DcMotor leftFrontMotor;
     private DcMotor rightFrontMotor;
@@ -22,7 +22,7 @@ public class mikuMechanum extends OpMode {
         leftFrontMotor = hardwareMap.get(DcMotor.class, "leftFrontMotor");
         rightBackMotor = hardwareMap.get(DcMotor.class, "rightBackMotor");
         rightFrontMotor = hardwareMap.get(DcMotor.class, "rightFrontMotor");
-        tetoIntake = hardwareMap.get(DcMotorEx.class, "tetoIntake");
+        tetoIntake = hardwareMap.get(DcMotor.class, "tetoIntake");
         tetoServo.init(hardwareMap);
         mikuServo.init(hardwareMap);
 
@@ -50,9 +50,9 @@ public class mikuMechanum extends OpMode {
         }
         tetoStatePrevious = tetoStateCurrent;
         if (tetoToggle) {
-            tetoIntake.setVelocity(100);
+            tetoIntake.setPower(.016667);
         } else {
-            tetoIntake.setVelocity(0);
+            tetoIntake.setPower(0);
         }
 
         if (gamepad1.a) {

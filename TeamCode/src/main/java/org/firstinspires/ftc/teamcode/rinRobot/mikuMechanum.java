@@ -9,6 +9,7 @@ public class mikuMechanum extends OpMode {
     sFMikiServo tetoMiku = new sFMikiServo();
 
     private DcMotor tetoIntake;
+    private DcMotor tetoOuttake;
     private DcMotor leftBackMotor;
     private DcMotor leftFrontMotor;
     private DcMotor rightFrontMotor;
@@ -23,6 +24,7 @@ public class mikuMechanum extends OpMode {
         rightBackMotor = hardwareMap.get(DcMotor.class, "rightBackMotor");
         rightFrontMotor = hardwareMap.get(DcMotor.class, "rightFrontMotor");
         tetoIntake = hardwareMap.get(DcMotor.class, "tetoIntake");
+        tetoOuttake =hardwareMap.get(DcMotor.class, "tetoOuttake");
         tetoMiku.init(hardwareMap);
 
     }
@@ -38,7 +40,7 @@ public class mikuMechanum extends OpMode {
         double rightFrontPow = Math.pow(-x + y + z, 3);
         double rightBackPow = Math.pow(x + y - z, 3);
         boolean tetoStateCurrent = gamepad1.dpad_down;
-
+        tetoOuttake.setPower(.7);
         leftFrontMotor.setPower(leftFrontPow);
         leftBackMotor.setPower(leftbackPow);
         rightFrontMotor.setPower(rightFrontPow);

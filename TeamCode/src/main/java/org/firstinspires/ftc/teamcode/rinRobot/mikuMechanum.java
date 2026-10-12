@@ -6,8 +6,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 //import com.qualcomm.robotcore.hardware.DcMotorEx;
 @TeleOp
 public class mikuMechanum extends OpMode {
-    sFMikiServo tetoServo = new sFMikiServo();
-    sFMikiServo mikuServo = new sFMikiServo();
+    sFMikiServo tetoMiku = new sFMikiServo();
+
     private DcMotor tetoIntake;
     private DcMotor leftBackMotor;
     private DcMotor leftFrontMotor;
@@ -23,8 +23,7 @@ public class mikuMechanum extends OpMode {
         rightBackMotor = hardwareMap.get(DcMotor.class, "rightBackMotor");
         rightFrontMotor = hardwareMap.get(DcMotor.class, "rightFrontMotor");
         tetoIntake = hardwareMap.get(DcMotor.class, "tetoIntake");
-        tetoServo.init(hardwareMap);
-        mikuServo.init(hardwareMap);
+        tetoMiku.init(hardwareMap);
 
     }
 
@@ -56,12 +55,12 @@ public class mikuMechanum extends OpMode {
         }
 
         if (gamepad1.a) {
-            tetoServo.setMikuServoPosition(.25);
-            mikuServo.setTetoServoPosition(-.25);
+            tetoMiku.setMikuServoPosition(.25);
+            tetoMiku.setTetoServoPosition(-.25);
         }
         else{
-            tetoServo.setTetoServoPosition(0);
-            mikuServo.setMikuServoPosition(0);
+            tetoMiku.setTetoServoPosition(0);
+            tetoMiku.setMikuServoPosition(0);
         }
     }
 }

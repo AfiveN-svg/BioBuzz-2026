@@ -40,7 +40,7 @@ public class mikuMechanum extends OpMode {
         double rightFrontPow = Math.pow(-x + y + z, 3);
         double rightBackPow = Math.pow(x + y - z, 3);
         boolean tetoStateCurrent = gamepad1.dpad_down;
-        tetoOuttake.setPower(.7);
+        tetoOuttake.setPower(-.6);
         leftFrontMotor.setPower(leftFrontPow);
         leftBackMotor.setPower(leftbackPow);
         rightFrontMotor.setPower(rightFrontPow);
@@ -51,7 +51,7 @@ public class mikuMechanum extends OpMode {
         }
         tetoStatePrevious = tetoStateCurrent;
         if (tetoToggle) {
-            tetoIntake.setPower(.28);
+            tetoIntake.setPower(.4);
         } else {
             tetoIntake.setPower(0);
         }

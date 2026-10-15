@@ -63,7 +63,7 @@ public class mikuMechanum extends OpMode {
         }
         mikuStatePrevious = mikuStateCurrent;
         if (mikuToggle) {
-            mikuOuttake.setPower(-.1);
+            mikuOuttake.setPower(-1);
         } else {
             tetoIntake.setPower(0);
         }

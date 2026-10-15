@@ -9,13 +9,15 @@ public class mikuMechanum extends OpMode {
     sFMikiServo tetoMiku = new sFMikiServo();
 
     private DcMotor tetoIntake;
-    private DcMotor tetoOuttake;
+    private DcMotor mikuOuttake;
     private DcMotor leftBackMotor;
     private DcMotor leftFrontMotor;
     private DcMotor rightFrontMotor;
     private DcMotor rightBackMotor;
     private boolean tetoToggle = false;
     private boolean tetoStatePrevious = false;
+    private boolean mikuToggle = false;
+    private boolean mikuStatePrevious = false;
 
     @Override
     public void init() {
@@ -24,7 +26,7 @@ public class mikuMechanum extends OpMode {
         rightBackMotor = hardwareMap.get(DcMotor.class, "rightBackMotor");
         rightFrontMotor = hardwareMap.get(DcMotor.class, "rightFrontMotor");
         tetoIntake = hardwareMap.get(DcMotor.class, "tetoIntake");
-        tetoOuttake =hardwareMap.get(DcMotor.class, "tetoOuttake");
+        mikuOuttake =hardwareMap.get(DcMotor.class, "tetoOuttake");
         tetoMiku.init(hardwareMap);
 
     }
@@ -40,7 +42,7 @@ public class mikuMechanum extends OpMode {
         double rightFrontPow = Math.pow(-x + y + z, 3);
         double rightBackPow = Math.pow(x + y - z, 3);
         boolean tetoStateCurrent = gamepad1.dpad_down;
-        tetoOuttake.setPower(-.6);
+        boolean mikuStateCurrent = gamepad1.b;
         leftFrontMotor.setPower(leftFrontPow);
         leftBackMotor.setPower(leftbackPow);
         rightFrontMotor.setPower(rightFrontPow);
@@ -51,11 +53,19 @@ public class mikuMechanum extends OpMode {
         }
         tetoStatePrevious = tetoStateCurrent;
         if (tetoToggle) {
-            tetoIntake.setPower(.4);
+            tetoIntake.setPower(.35);
         } else {
             tetoIntake.setPower(0);
         }
-
+        if (mikuStateCurrent && !mikuStatePrevious) {
+            mikuToggle = !mikuToggle;
+        }
+        tetoStatePrevious = tetoStateCurrent;
+        if (mikuToggle) {
+            mikuOuttake.setPower(-.75);
+        } else {
+            tetoIntake.setPower(0);
+        }
         if (gamepad1.a) {
             tetoMiku.setMikuServoPosition(.25);
             tetoMiku.setTetoServoPosition(-.25);

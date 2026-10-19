@@ -65,7 +65,7 @@ public class mikuMechanum extends OpMode {
         if (mikuToggle) {
             mikuOuttake.setPower(-1);
         } else {
-            tetoIntake.setPower(0);
+            mikuOuttake.setPower(0);
         }
         if (gamepad1.a) {
             tetoMiku.setMikuServoPosition(.25);

@@ -27,7 +27,6 @@ public class mikuMechanum extends LinearOpMode {
         tetoMiku.init(hardwareMap);
 
         waitForStart();
-        while(opModeIsActive()){
             double x = gamepad1.left_stick_x * 1.1;
             double y = -gamepad1.left_stick_y;
             double z = gamepad1.right_stick_x;
@@ -68,7 +67,6 @@ public class mikuMechanum extends LinearOpMode {
             }
         }
     }
-}
 /*@TeleOp
 public class mikuMechanum extends OpMode {
     sFMikiServo tetoMiku = new sFMikiServo();

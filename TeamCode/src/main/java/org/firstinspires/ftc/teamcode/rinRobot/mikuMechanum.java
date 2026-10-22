@@ -12,7 +12,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
 @TeleOp
-public class mikuMechanumLinear extends OpMode {
+public class mikuMechanum extends OpMode {
         sFMikiServo tetoMiku = new sFMikiServo();
         private boolean tetoToggle = false;
         private boolean tetoStatePrevious = false;

@@ -10,18 +10,20 @@ import java.time.Duration;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Servo;
 
 @TeleOp
 public class mikuMechanum extends OpMode {
-        sFMikiServo tetoMiku = new sFMikiServo();
         private boolean tetoToggle = false;
         private boolean tetoStatePrevious = false;
-    DcMotor leftBackMotor;
-    DcMotor leftFrontMotor;
-    DcMotor rightBackMotor;
-    DcMotor rightFrontMotor;
-    DcMotor tetoIntake;
-    DcMotor mikuOuttake;
+   private DcMotor leftBackMotor;
+    private DcMotor leftFrontMotor;
+    private DcMotor rightBackMotor;
+    private DcMotor rightFrontMotor;
+    private DcMotor tetoIntake;
+    private DcMotor mikuOuttake;
+    private Servo mikuServo;
+    private Servo tetoServo;
     @Override
     public void init() {
         leftBackMotor = hardwareMap.get(DcMotor.class, "leftBackMotor");
@@ -30,7 +32,8 @@ public class mikuMechanum extends OpMode {
          rightFrontMotor = hardwareMap.get(DcMotor.class, "rightFrontMotor");
          tetoIntake = hardwareMap.get(DcMotor.class, "tetoIntake");
          mikuOuttake = hardwareMap.get(DcMotor.class, "tetoOuttake");
-        tetoMiku.init(hardwareMap);
+        mikuServo = hardwareMap.get(Servo.class, "mikuServo");
+        tetoServo = hardwareMap.get(Servo.class, "tetoServo");
     }
 
     @Override
@@ -64,13 +67,13 @@ public class mikuMechanum extends OpMode {
 
         if (mikuStateCurrent > .5) {
             mikuOuttake.setPower(-.8);
-            tetoMiku.setTetoServoPosition(.25);
-            tetoMiku.setMikuServoPosition(-.25);
+            mikuServo.setPosition(.25);
+            tetoServo.setPosition(-.25);
         } else {
             mikuOuttake.setPower(0);
 
-            tetoMiku.setTetoServoPosition(0);
-            tetoMiku.setMikuServoPosition(0);
+            mikuServo.setPosition(0);
+            tetoServo.setPosition(0);
         }
     }
 }

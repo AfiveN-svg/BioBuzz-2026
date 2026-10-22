@@ -16,6 +16,9 @@ import com.qualcomm.robotcore.hardware.Servo;
 public class mikuMechanum extends OpMode {
         private boolean tetoToggle = false;
         private boolean tetoStatePrevious = false;
+        private boolean mikuToggle;
+        private boolean mikuStatePrevious = false;
+
    private DcMotor leftBackMotor;
     private DcMotor leftFrontMotor;
     private DcMotor rightBackMotor;
@@ -34,6 +37,7 @@ public class mikuMechanum extends OpMode {
          mikuOuttake = hardwareMap.get(DcMotor.class, "tetoOuttake");
         mikuServo = hardwareMap.get(Servo.class, "mikuServo");
         tetoServo = hardwareMap.get(Servo.class, "tetoServo");
+        tetoServo.setDirection(Servo.Direction.REVERSE);
     }
 
     @Override
@@ -47,7 +51,7 @@ public class mikuMechanum extends OpMode {
         double rightFrontPow = Math.pow(x + y - z, 3);
         double rightBackPow = Math.pow(-x + y - z, 3);
         boolean tetoStateCurrent = gamepad1.dpad_down;
-        double mikuStateCurrent = gamepad1.right_trigger;
+        boolean mikuStateCurrent = gamepad1.b;
 
         leftFrontMotor.setPower(leftFrontPow);
         leftBackMotor.setPower(leftbackPow);
@@ -65,12 +69,20 @@ public class mikuMechanum extends OpMode {
             tetoIntake.setPower(0);
         }
 
-        if (mikuStateCurrent > .5) {
+        if (mikuStateCurrent && !mikuStatePrevious) {
+            mikuToggle = !mikuToggle;
+        }
+        tetoStatePrevious = tetoStateCurrent;
+        if (tetoToggle) {
             mikuOuttake.setPower(-.8);
-            mikuServo.setPosition(.25);
-            tetoServo.setPosition(-.25);
+
         } else {
             mikuOuttake.setPower(0);
+        }
+        if (gamepad1.right_trigger > .5) {
+            mikuServo.setPosition(.25);
+            tetoServo.setPosition(.25);
+        } else {
 
             mikuServo.setPosition(0);
             tetoServo.setPosition(0);

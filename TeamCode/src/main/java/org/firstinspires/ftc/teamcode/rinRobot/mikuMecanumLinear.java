@@ -31,7 +31,7 @@ public class mikuMecanumLinear extends LinearOpMode {
             double rightFrontPow = Math.pow(x + y - z, 3);
             double rightBackPow = Math.pow(-x + y - z, 3);
             boolean tetoStateCurrent = gamepad1.dpad_down;
-            double mikuStateCurrent = gamepad1.right_trigger;
+            double mikuStateCurrent = gamepad1.b;
 
             leftFrontMotor.setPower(leftFrontPow);
             leftBackMotor.setPower(leftbackPow);

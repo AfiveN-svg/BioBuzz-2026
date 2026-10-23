@@ -38,6 +38,8 @@ public class mikuMechanum extends OpMode {
         mikuServo = hardwareMap.get(Servo.class, "mikuServo");
         tetoServo = hardwareMap.get(Servo.class, "tetoServo");
         tetoServo.setDirection(Servo.Direction.REVERSE);
+        mikuServo.setPosition(0);
+        tetoServo.setPosition(0);
     }
 
     @Override

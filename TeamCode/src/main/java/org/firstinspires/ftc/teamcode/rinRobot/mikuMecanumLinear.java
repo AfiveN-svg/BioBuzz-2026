@@ -49,7 +49,7 @@ public class mikuMecanumLinear extends LinearOpMode {
                 tetoIntake.setPower(0);
             }
 
-            if (mikuStateCurrent > .5) {
+            /*if(){
                 mikuOuttake.setPower(-.8);
                 sleep(1000);
                 tetoMiku.setTetoServoPosition(.25);
@@ -59,7 +59,7 @@ public class mikuMecanumLinear extends LinearOpMode {
                 sleep(1000);
                 tetoMiku.setTetoServoPosition(0);
                 tetoMiku.setMikuServoPosition(0);
-            }
+            }*/
         }
     }
 }

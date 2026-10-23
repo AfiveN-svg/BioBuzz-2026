@@ -9,8 +9,8 @@ public class sFMikiServo {
     private Servo tetoServo;
 
     public void init(HardwareMap hwMap) {
-        mikuServo = hwMap.get(Servo.class, "mikuServo");
-        tetoServo = hwMap.get(Servo.class, "tetoServo");
+    //    mikuServo = hwMap.get(Servo.class, "mikuServo");
+      //  tetoServo = hwMap.get(Servo.class, "tetoServo");
         //mikuServo.scaleRange(.5,1.0); gives the certain range
         //mikuServo.setDirection(Servo.Direction.REVERSE); does the direction
     }

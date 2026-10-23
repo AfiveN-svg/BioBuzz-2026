@@ -16,7 +16,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 public class mikuMechanum extends OpMode {
         private boolean tetoToggle = false;
         private boolean tetoStatePrevious = false;
-        private boolean mikuToggle;
+        private boolean mikuToggle = false;
         private boolean mikuStatePrevious = false;
 
    private DcMotor leftBackMotor;
@@ -73,7 +73,7 @@ public class mikuMechanum extends OpMode {
             mikuToggle = !mikuToggle;
         }
         mikuStatePrevious= mikuStateCurrent;
-        if (tetoToggle) {
+        if (mikuToggle) {
             mikuOuttake.setPower(-.8);
 
         } else {
@@ -82,7 +82,8 @@ public class mikuMechanum extends OpMode {
         if (gamepad1.right_trigger > .5) {
             mikuServo.setPosition(.25);
             tetoServo.setPosition(.25);
-        } else {
+        }
+        else {
 
             mikuServo.setPosition(0);
             tetoServo.setPosition(0);
